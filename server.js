@@ -4,6 +4,18 @@ var router = express.Router();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'ejs-demo'
+});
+connection.connect((err) => {
+    if (err) throw err;
+    console.log('DB Connected!');
+});
+
 // use res.render to load up an ejs view file
 
 // index page
